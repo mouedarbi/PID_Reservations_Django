@@ -3,6 +3,7 @@
 from django.urls import path
 
 from . import views
+from api.catalogue.views import ArtistListCreateView, ArtistRetrieveUpdateDestroyView
 
 app_name='catalogue'
 
@@ -47,4 +48,8 @@ urlpatterns = [
     path('review/create', views.review.create, name='review-create'),
     path('review/edit/<int:review_id>', views.review.edit, name='review-edit'),
     path('review/delete/<int:review_id>', views.review.delete, name='review-delete'),
+
+    # Routes pour l'API
+    path('api/artists/', ArtistListCreateView.as_view(), name='artist-list'),
+    path('api/artists/<int:pk>/', ArtistRetrieveUpdateDestroyView.as_view(), name='artist-detail'),
 ]
