@@ -46,6 +46,14 @@ Implémentation d'une API RESTful pour l'application de réservation de spectacl
 - Fichier modifié: .gitignore
 - Statut: Terminé
 
+### Erreurs rencontrées et solutions
+
+#### Erreur d'import dans api/catalogue/views.py
+- **Erreur**: `ModuleNotFoundError: No module named 'catalogue.models.serializers'`
+- **Cause**: Tentative d'import de `ArtistSerializer` depuis le mauvais module
+- **Solution**: Correction de l'import pour pointer vers `api.catalogue.serializers` au lieu de `catalogue.models.serializers`
+- **Date**: 19 janvier 2026
+
 ## Étapes à venir
 
 ### Étape 7: Configuration des routes API
