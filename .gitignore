@@ -2,7 +2,16 @@
 .virtualenvs/
 __pycache__/
 *.pyc
-gemini.md
-Roadmap-Django5_Mapping .txt
-database_structure.txt
+*.pyo
+*.pyd
+.Python
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+*.txt
+*.log
+*.csv
+*.json
 venv/
