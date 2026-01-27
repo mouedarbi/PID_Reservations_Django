@@ -9,6 +9,6 @@ class Representation(models.Model):
 
     def __str__(self):
         return f"{self.show.slug} @ {self.schedule}"
-    
+
     class Meta:
         db_table = "representations"

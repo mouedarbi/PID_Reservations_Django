@@ -52,4 +52,7 @@ urlpatterns = [
     # Routes pour l'API
     path('api/artists/', ArtistListCreateView.as_view(), name='artist-list'),
     path('api/artists/<int:pk>/', ArtistRetrieveUpdateDestroyView.as_view(), name='artist-detail'),
+
+    # Routes pour l'admin personnalisé
+    path('admin/dashboard/', views.admin_views.AdminDashboardView.as_view(), name='admin_dashboard'),
 ]

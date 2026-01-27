@@ -10,7 +10,10 @@ ENV/
 .venv/
 env.bak/
 venv.bak/
+# Ignorer tous les fichiers .txt sauf ceux spécifiquement autorisés
 *.txt
+!requirements.txt
+!Roadmap-Django5_API.txt
 *.log
 *.csv
 *.json
