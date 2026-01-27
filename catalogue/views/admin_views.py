@@ -10,15 +10,15 @@ from decimal import Decimal
 
 
 class AdminDashboardView(TemplateView):
-    template_name = 'admin/index.html'
-    
+    template_name = 'admin/admin_dashboard.html'
+
     @method_decorator(staff_member_required)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         # Données pour le tableau de bord
         context['total_reservations'] = Reservation.objects.count()
         context['total_revenue'] = self.calculate_total_revenue()
@@ -40,8 +40,22 @@ class AdminDashboardView(TemplateView):
         context['top_shows'] = self.get_top_shows()
         context['recent_activities'] = self.get_recent_activities()
         context['upcoming_shows_list'] = self.get_upcoming_shows_list()
-        
+
+        # Ajouter les éléments nécessaires pour le template admin
+        context.update(self.get_admin_context())
+
         return context
+
+    def get_admin_context(self):
+        """Fournir les variables de contexte nécessaires pour le template admin"""
+        return {
+            'title': 'Tableau de bord administration',
+            'site_title': 'Système de réservation',
+            'site_header': 'Administration',
+            'has_permission': True,
+            'available_apps': [],  # Liste vide ou à personnaliser
+            'app_list': [],  # Liste vide ou à personnaliser
+        }
     
     def calculate_total_revenue(self):
         # Calculer le revenu total à partir des réservations
