@@ -18,7 +18,7 @@
     {% if perms.catalogue.delete_review or request.user == review.user %}
         <form action="{% url 'catalogue:review-delete' review.id %}" method="post" style="display: inline;">
             {% csrf_token %}
-            <button type'submit" class="btn btn-danger">Supprimer</button>
+            <button type="submit" class="btn btn-danger">Supprimer</button>
         </form>
     {% endif %}
 

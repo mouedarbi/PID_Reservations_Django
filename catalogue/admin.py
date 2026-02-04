@@ -1,8 +1,21 @@
 from django.contrib import admin
-from .models import *
+from .models import Artist, Role, RepresentationReservation, Price, Show, Location, Locality, Type, Representation, Review
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 # Personnalisation de l'affichage des modèles dans l'admin
 
+# Register your models here.
+admin.site.register(Artist)
+admin.site.register(Role)
+admin.site.register(RepresentationReservation)
+admin.site.register(Price)
+admin.site.register(Show)
+admin.site.register(Location)
+admin.site.register(Locality)
+admin.site.register(Type)
+admin.site.register(Representation)
+admin.site.register(Review)
 @admin.register(Artist)
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('firstname', 'lastname')

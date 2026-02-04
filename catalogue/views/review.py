@@ -45,7 +45,7 @@ def edit(request, review_id):
     review = get_object_or_404(Review, id=review_id)
 
     if not request.user == review.user: # Additional check to ensure user can only edit their own review
-        messages.error(request, "Vous n'êtes pas autorisé à modifier cette critique.")
+        messages.error(request, "Vous n\'êtes pas autorisé à modifier cette critique.")
         return redirect('catalogue:review-show', review.id)
 
     if request.method == 'POST':
@@ -67,7 +67,7 @@ def delete(request, review_id):
     review = get_object_or_404(Review, id=review_id)
 
     if not request.user == review.user: # Additional check to ensure user can only delete their own review
-        messages.error(request, "Vous n'êtes pas autorisé à supprimer cette critique.")
+        messages.error(request, "Vous n\'êtes pas autorisé à supprimer cette critique.")
         return redirect('catalogue:review-show', review.id)
 
     if request.method == 'POST':

@@ -5,8 +5,11 @@ from .locality import *
 from .location import *
 from .price import *
 from .representation import *
+from .representation_price import *
 from .representation_reservation import *
 from .reservation import *
 from .review import *
+from .role import *
 from .show import *
+from .type import *
 from .user_meta import *

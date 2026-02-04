@@ -228,7 +228,7 @@ Mohamed Ouedarbi – Bachelier en Informatique de gestion
 **Actions réalisées :**
 1.  **Formulaire :** Création de `catalogue/forms/TypeForm.py`.
 2.  **Vues :** Ajout des vues `create`, `edit`, et `delete` dans `catalogue/views/type.py`, avec gestion des permissions.
-3.  **Templates :** Création de `catalogue/templates/type/create.html` and `catalogue/templates/type/edit.html`.
+3.  **Templates :** Création de `catalogue/templates/type/create.html` et `catalogue/templates/type/edit.html`.
 4.  **Routes URL :** Ajout des routes correspondantes dans `catalogue/urls.py`.
 5.  **Templates `index` et `show` :** Mise à jour des templates `type/index.html` et `type/show.html` pour inclure des liens vers les actions CRUD.
 
