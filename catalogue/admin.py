@@ -1,21 +1,10 @@
 from django.contrib import admin
-from .models import Artist, Role, RepresentationReservation, Price, Show, Location, Locality, Type, Representation, Review
+from .models import Artist, Role, RepresentationReservation, Price, Show, Location, Locality, Type, Representation, Review, ArtistType, ArtistTypeShow, Reservation, UserMeta
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-# Personnalisation de l'affichage des modèles dans l'admin
-
 # Register your models here.
-admin.site.register(Artist)
-admin.site.register(Role)
-admin.site.register(RepresentationReservation)
-admin.site.register(Price)
-admin.site.register(Show)
-admin.site.register(Location)
-admin.site.register(Locality)
-admin.site.register(Type)
-admin.site.register(Representation)
-admin.site.register(Review)
+
 @admin.register(Artist)
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ('firstname', 'lastname')
@@ -32,7 +21,7 @@ class TypeAdmin(admin.ModelAdmin):
 class ArtistTypeAdmin(admin.ModelAdmin):
     list_display = ('artist', 'type')
     list_filter = ('type',)
-    autocomplete_fields = ('artist', 'type')
+    search_fields = ('artist__firstname', 'artist__lastname', 'type__type')
 
 
 @admin.register(ArtistTypeShow)
@@ -101,3 +90,22 @@ class ReviewAdmin(admin.ModelAdmin):
 class UserMetaAdmin(admin.ModelAdmin):
     list_display = ('user', 'langue')
     search_fields = ('user__username', 'user__first_name', 'user__last_name')
+
+@admin.register(Role)
+class RoleAdmin(admin.ModelAdmin):
+    list_display = ('role',)
+    filter_horizontal = ('users',)
+
+# Define an inline admin descriptor for UserMeta model
+class UserMetaInLine(admin.StackedInline):
+    model = UserMeta
+    can_delete = False
+    verbose_name_plural = 'User Meta'
+
+# Define a new User admin
+class UserAdmin(BaseUserAdmin):
+    inlines = [UserMetaInLine]
+
+# Re-register UserAdmin
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
