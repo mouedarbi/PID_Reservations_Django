@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+  <link rel="stylesheet" type="text/css" href="{% static 'admin/css/admin-custom.css' %}">
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; {% trans 'Dashboard' %}
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="dashboard-content">
+    <h1>Tableau de bord d'administration</h1>
+    <p>Bienvenue dans le tableau de bord d'administration personnalisé.</p>
+    
+    <!-- Vous pouvez inclure ici le contenu du dashboard -->
+    {% include "admin/index.html" %}
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'admin/js/admin-custom.js' %}"></script>
+{% endblock %}

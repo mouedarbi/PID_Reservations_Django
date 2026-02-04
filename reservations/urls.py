@@ -19,6 +19,7 @@ from django.urls import include, path
 
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
+from catalogue.views.admin_views import AdminDashboardView
 
 urlpatterns = [
     #path('', RedirectView.as_view(url='/artist/', permanent=False)),
@@ -27,6 +28,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('catalogue/', include('catalogue.urls')),
+    # Route pour le dashboard admin personnalisé
+    path('admin-dashboard/', AdminDashboardView.as_view(), name='admin_dashboard'),
     path(
         "admin/password_reset/",
         auth_views.PasswordResetView.as_view(

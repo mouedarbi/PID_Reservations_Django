@@ -1,0 +1,15 @@
+{% extends "admin/admin.html" %}
+{% load static %}
+
+{% block content %}
+<div class="admin-content">
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h2 class="admin-card-title">{% block section_title %}{% endblock %}</h2>
+        </div>
+        <div class="admin-card-body">
+            {% block section_content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

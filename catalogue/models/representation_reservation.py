@@ -11,6 +11,7 @@ class RepresentationReservation(models.Model):
 
     class Meta:
         db_table = "representation_reservation"
+        constraints = [models.CheckConstraint(check=models.Q(quantity__gt=0), name="quantity_must_be_positive")]
 
     def __str__(self):
         return f"Reservation {self.reservation.id} - {self.representation.show.title} ({self.quantity})"

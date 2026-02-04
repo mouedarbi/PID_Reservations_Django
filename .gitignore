@@ -2,7 +2,19 @@
 .virtualenvs/
 __pycache__/
 *.pyc
-gemini.md
-Roadmap-Django5_Mapping .txt
-database_structure.txt
-git add .gitignore
+*.pyo
+*.pyd
+.Python
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+# Ignorer tous les fichiers .txt sauf ceux spécifiquement autorisés
+*.txt
+!requirements.txt
+!Roadmap-Django5_API.txt
+*.log
+*.csv
+*.json
+venv/
