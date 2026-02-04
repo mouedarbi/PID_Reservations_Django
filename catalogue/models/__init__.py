@@ -10,3 +10,5 @@ from .representation import *
 from .review import *
 from .artist_type import *
 from .artist_type_show import *
+from .representation_reservation import *
+from .representation_price import *
